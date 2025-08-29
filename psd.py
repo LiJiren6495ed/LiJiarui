@@ -5,7 +5,7 @@ import traceback
 def modify_psd_template(title, author, playing):
     try:
         # 加载PSD文件
-        input_path = r'D:\\PhotoShop\\Image\\body.psd'
+        input_path = r'D:\PhotoShop\Image\body.psd'
 
         if not os.path.exists(input_path):
             print(f"错误: 文件不存在 - {input_path}")
@@ -25,7 +25,7 @@ def modify_psd_template(title, author, playing):
                 layer.text = playing
         
         # 保存修改后的文件
-        output_path = r"D:\\PhotoShop\\Image\\ready.psd"
+        output_path = r"D:\PhotoShop\Image\ready.psd"
         psd.save(output_path)
         
         print(f"文件已保存到: {output_path}")
