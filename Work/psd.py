@@ -11,6 +11,7 @@ def modify_psd_template(title, author, playing):
             print(f"错误: 文件不存在 - {input_path}")
             return
 
+        # 给出文件打开反馈
         print(f"正在打开文件: {input_path}")
         psd = PSDImage.open(input_path)
         print("文件打开成功")
