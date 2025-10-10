@@ -1,7 +1,7 @@
 #include <iostream>
 #include <regex>
 #include <string>
-#include <sstream>
+#include <vector>
 #include <stdexcept>
 
 using namespace std;
@@ -13,16 +13,28 @@ double calculate(string str);
 int main()
 {
     string inputstr;
+    regex pattern(R"(([-+]?\d*\.?\d+)\s*([+*/-])\s*([-+]?\d*\.?\d+)\s*$)");
+    smatch match;
+    vector<string> tokens;
 
     while (true)
     {
     cout << "请输入算术表达式：";
     getline(cin, inputstr);
     string str = removeSpaces(inputstr);
+    if (regex_search(str, match, pattern))
+    {
+        string num1 = match[1];
+        string op = match[2];
+        string num2 = match[3];
+        tokens.push_back(num1);
+        tokens.push_back(op);
+        tokens.push_back(num2);
+    }
     try
     {
         double result = calculate(str);
-        cout << "结果：" << result << endl;
+        cout << "结果：" << tokens[0] << " " << tokens[1] << " " << tokens[2] << " = " << result << endl;
     }
     catch (const exception& e)
     {
