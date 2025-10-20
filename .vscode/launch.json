@@ -8,14 +8,14 @@
         "name": "(gdb) 启动",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
+        "program": "${fileBasenameNoExtension}",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
         "environment": [],
         "externalConsole": false,
         "MIMode": "gdb",
-        "miDebuggerPath": "D:/Downloads/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/bin/gdb.exe",
+        "miDebuggerPath": "/usr/bin/gdb",
         "setupCommands": [
             {
                 "description": "为 gdb 启用整齐打印",
@@ -28,7 +28,7 @@
                 "ignoreFailures": true
             }
         ],
-        "preLaunchTask": "tast gcc"
+        "preLaunchTask": "task gcc"
     }
     ]
 }
