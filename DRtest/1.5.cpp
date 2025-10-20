@@ -22,6 +22,7 @@ int main()
     cout << "请输入算术表达式：";
     getline(cin, inputstr);
     string str = removeSpaces(inputstr);
+    // 进行匹配，匹配后将字符出啊各部分保存在向量里方便调用
     if (regex_search(str, match, pattern))
     {
         string num1 = match[1];
@@ -38,12 +39,13 @@ int main()
     }
     catch (const exception& e)
     {
-        cout << "错误：" << e.what() << endl;
+        cout << "错误：" << e.what() << endl; // 返回错误信息
         cout << "请重新输入！" << endl;
     }
     }
 }
 
+// 检测输入是否有效
 bool validInput(string str)
 {
     regex pattern(R"(([-+]?\d*\.?\d+)\s*([+*/-])\s*([-+]?\d*\.?\d+)\s*$)");
@@ -51,6 +53,7 @@ bool validInput(string str)
     return regex_match(str, pattern);
 }
 
+// 移除空格统一字符串格式
 string removeSpaces(string str)
 {
     string result = "";
@@ -61,6 +64,7 @@ string removeSpaces(string str)
     return result;
 }
 
+// 计算函数
 double calculate(string str)
 {
     string input;
@@ -71,6 +75,7 @@ double calculate(string str)
         throw invalid_argument("输入格式错误！");
     }
         
+    // 计算同时进行异常处理
     try
     {
     double num1 = stod(match[1]);
